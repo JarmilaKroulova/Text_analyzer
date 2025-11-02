@@ -1,0 +1,180 @@
+Testovací plán pro program Text analyzér
+______________________________________
+
+Skript slouží k analýze textu. Zkontroluje, zda je uživatel zaregistrován a pokud ano, dokáže z vybraného textu spočítat počet slov, vrací počet slov s velkým titulním písmenem, počet slov psaných velkým a malým písmem, počet číslic a součet číslic. Z výsledků analýzy vytiskne jednoduchý řádkový graf. 
+Skript pracuje s dvěma proměnnými - jedním je seznam textů k analýze, druhým je slovník uživatelů (přihlašovací jméno : heslo)
+
+Cíle testování: Ověření správné funkčnosti programu a jeho funkcí 
+                Ověření kontroly neplatných vstupů
+Rozsah testování: Pokrytí všech funkcí - testy pozitivní, negativní
+                Netestuje se vizuální stránka programu
+Testovací strategie: Jednotkové manuální testování - testování na základě pokrytí, ad-hoc testování
+Testovací prostředí: Lokální
+
+Tento testovací plán obsahuje testovací případy (TC) pro každou funkci ve skriptu. 
+Funkce jsou - text_analyzer TC01 - TC07
+        - process_user_input TC01 - TC02 + TC04 - TC05 + TC08 - TC10
+        - process_text TC11
+        - print_the results TC11
+
+Příprava prostředí - pracujeme s uživatelem : heslem - bob : 123 a textem 1 - Situated about 10 miles west of Kemmerer, Fossil Butte is a ruggedly impressive topographic feature that rises sharply some 1000 feet above Twin Creek Valley to an elevation of more than 7500 feet above sea level. The butte is located just north of US 30 and the Union Pacific Railroad, which traverse the valley.
+__________________________________________________________________________
+
+TC01: Ověření funkčnosti programu - pozitivní test
+
+Popis: Ověření, že registrace správným uživatelským jménem a heslem v hlavním menu správně spustí možnost analyzovat text
+Vstupní podmínky: Program nezapočal
+Kroky testu: 1. Spusťte program
+	2. Ověřte, že se zobrazuje uvítání s možností přihlášení (username: )
+	3. Napište bob a potvrďte stisknutím klávesy Enter
+	4. Ověřte, že se zobrazuje možnost zadání hesla (password: )
+	5. Napište 123 a potvrďte stisknutím klávesy Enter	
+Očekávaný výsledek: Program vás přivítá a nabídne výběr textů k analýze
+Skutečný výsledek: Program provedl kroky dle zadání
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
+TC02: Ověření funkčnosti programu - pozitivní test
+
+Popis: Ověření, že  po registraci správným uživatelským jménem a heslem v hlavním menu lze vybrat text k analýze
+Vstupní podmínky: Program nezapočal
+Kroky testu: 1. Spusťte program
+	2. Ověřte, že se zobrazuje uvítání s možností přihlášení (username: )
+	3. Napište bob a potvrďte stisknutím klávesy Enter
+	4. Ověřte, že se zobrazuje možnost zadání hesla (password: )
+	5. Napište 123 a potvrďte stisknutím klávesy Enter	
+	6. Ověřte, že program zobrazuje uvítání s možností výběru textu k analýze
+Očekávaný výsledek: Program vás přivítá a nabídne výběr textů k analýze
+Skutečný výsledek: Program provedl kroky dle zadání
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
+TC03: Ověření funkčnosti programu - pozitivní test
+
+Popis: Ověření, že  po registraci správným uživatelským jménem a heslem v hlavním menu a výběru textu dojde k analýze
+Vstupní podmínky: Program nezapočal
+Kroky testu: 1. Spusťte program
+	2. Ověřte, že se zobrazuje uvítání s možností přihlášení (username: )
+	3. Napište bob a potvrďte stisknutím klávesy Enter
+	4. Ověřte, že se zobrazuje možnost zadání hesla (password: )
+	5. Napište 123 a potvrďte stisknutím klávesy Enter	
+	6. Ověřte, že program zobrazuje uvítání s možností výběru textu k analýze
+	7. Napište 1 a potvrďte stisknutím klávesy Enter
+	8. Ověřte, že se zobrazuje analýza textu
+Očekávaný výsledek: Program analyzuje text
+Skutečný výsledek: Program vytiskl počty slov a graf s délkou slov a jejich výskytem v textu
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
+TC04 a TC05: Ověření funkčnosti programu - negativní test
+
+Popis: Ověření, že registrace neplatným uživatelským jménem a heslem v hlavním menu nespustí možnost analyzovat text
+Vstupní podmínky: Program nezapočal
+Kroky testu: 1. Spusťte program
+	2. Ověřte, že se zobrazuje uvítání s možností přihlášení (username: )
+	3. Napište bob a potvrďte stisknutím klávesy Enter/Napište john a potvrďte stisknutím klávesy Enter
+	4. Ověřte, že se zobrazuje možnost zadání hesla (password: )
+	5. Napište 456  a potvrďte stisknutím klávesy Enter/Napište 123 a potvrďte stisknutím klávesy Enter	
+Očekávaný výsledek: Program vás upozorní, že heslo není platné
+Skutečný výsledek: Program vypsal: Unregistered user, terminating the program.
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
+TC06: Ověření funkčnosti programu - negativní test
+
+Popis: Ověření, že mohu vybrat text pouze číslicí
+Vstupní podmínky: Program je spuštěný a uživatel správně registrován
+Kroky testu: 1. Ověřte, že program zobrazuje uvítání s možností výběru textu k analýze
+	2. Napište P a potvrďte stisknutím klávesy Enter
+	3. Ověřte, že program nenačetl text
+	4. Napište / a potvrďte stisknutím klávesy Enter
+	5. Ověřte, že program nenačetl text
+	2. Napište   (mezeru) a potvrďte stisknutím klávesy Enter
+	3. Ověřte, že program nenačetl text
+Očekávaný výsledek: Program vás upozorní, že jste nezadali číslo
+Skutečný výsledek: Program vypsal: Try again! This is not a number. Program se po třetím špatném zadání ukončil a 	vypsal: You are failed. Terminating program.
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+TC07: Ověření funkčnosti programu - negativní test
+
+Popis: Ověření, že mohu vybrat text pouze číslicí ve správném rozsahu
+Vstupní podmínky: Program je spuštěný a uživatel správně registrován
+Kroky testu: 1. Ověřte, že program zobrazuje uvítání s možností výběru textu k analýze
+	2. Napište 0 a potvrďte stisknutím klávesy Enter
+	3. Ověřte, že program nenačetl text
+	4. Napište 4 a potvrďte stisknutím klávesy Enter
+	5. Ověřte, že program nenačetl text
+	2. Napište 100 a potvrďte stisknutím klávesy Enter
+	3. Ověřte, že program nenačetl text
+Očekávaný výsledek: Program vás upozorní, že jste nezadali číslo
+Skutečný výsledek: Program vypsal: Try again! This is not in correct range. Program se po třetím špatném zadání ukončil 	a vypsal: You are failed. Terminating program.
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
+TC08: Ověření funkce - pozitivní test
+
+Popis: Ověření, že registrace správným uživatelským jménem a heslem napsaným velkými písmeny v hlavním menu správně spustí možnost analyzovat text
+Vstupní podmínky: Program nezapočal
+Kroky testu: 1. Spusťte program
+	2. Ověřte, že se zobrazuje uvítání s možností přihlášení (username: )
+	3. Napište BOB a potvrďte stisknutím klávesy Enter
+	4. Ověřte, že se zobrazuje možnost zadání hesla (password: )
+	5. Napište 123 a potvrďte stisknutím klávesy Enter	
+Očekávaný výsledek: Program vás přivítá a nabídne výběr textů k analýze
+Skutečný výsledek: Program převedl jméno na malá písmena a vypsal: Welcome to the app, bob We have 3 texts to be analyzed.
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
+TC09: Ověření funkce - negativní test
+
+Popis: Ověření, že registrace platným uživatelským jménem a platným heslem jiného uživatele v hlavním menu nespustí možnost analyzovat text
+Vstupní podmínky: Program nezapočal
+Kroky testu: 1. Spusťte program
+	2. Ověřte, že se zobrazuje uvítání s možností přihlášení (username: )
+	3. Napište bob a potvrďte stisknutím klávesy Enter	
+	4. Ověřte, že se zobrazuje možnost zadání hesla (password: )
+	5. Napište password123  a potvrďte stisknutím klávesy Enter
+Očekávaný výsledek: Program vás upozorní, že heslo není platné
+Skutečný výsledek: Program vypsal: Unregistered user, terminating the program.
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
+TC10: Ověření funkce - negativní test
+
+Popis: Ověření, že mohu vybrat text pouze číslicí
+Vstupní podmínky: Program je spuštěný a uživatel správně registrován
+Kroky testu: 1. Ověřte, že program zobrazuje uvítání s možností výběru textu k analýze
+	2. Napište @ a potvrďte stisknutím klávesy Enter
+	3. Ověřte, že program nenačetl text
+	4. Napište q a potvrďte stisknutím klávesy Enter
+	5. Ověřte, že program nenačetl text
+	2. Napište > a potvrďte stisknutím klávesy Enter
+	3. Ověřte, že program nenačetl text
+Očekávaný výsledek: Program vás upozorní, že jste nezadali číslo
+Skutečný výsledek: Program vypsal: Try again! This is not a number. Program se po třetím špatném zadání ukončil a 	vypsal: You are failed. Terminating program.
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
+TC11: Ověření funkce - pozitivní test
+
+Popis: Ověření, že  po výběru textu dojde k analýze
+Vstupní podmínky:  Program je spuštěný a uživatel správně registrován
+Kroky testu: 1. Ověřte, že program zobrazuje uvítání s možností výběru textu k analýze
+	2. Napište 1 a potvrďte stisknutím klávesy Enter
+	3. Ověřte, že se zobrazuje analýza textu
+	4. Ověřte, že údaje z analýzy odpovídají textu
+Očekávaný výsledek: Program analyzuje správný text
+Skutečný výsledek: Program vytiskl počty slov a graf s délkou slov a jejich výskytem v textu, údaje jsou správné, 	grafické zobrazení odpovídá číslu.
+Stav: Pass
+Poznámky: Tento případ kontroluje základní funkčnost programu
+__________________________________________________________________________________________
+
