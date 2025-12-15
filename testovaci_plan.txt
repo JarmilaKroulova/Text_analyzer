@@ -178,3 +178,4 @@ Stav: Pass
 Poznámky: Tento případ kontroluje základní funkčnost programu
 __________________________________________________________________________________________
 
+
