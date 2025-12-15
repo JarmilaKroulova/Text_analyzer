@@ -1,8 +1,11 @@
 Testovací plán pro program Text analyzér
 ______________________________________
 
-Skript slouží k analýze textu. Zkontroluje, zda je uživatel zaregistrován a pokud ano, dokáže z vybraného textu spočítat počet slov, vrací počet slov s velkým titulním písmenem, počet slov psaných velkým a malým písmem, počet číslic a součet číslic. Z výsledků analýzy vytiskne jednoduchý řádkový graf. 
-Skript pracuje s dvěma proměnnými - jedním je seznam textů k analýze, druhým je slovník uživatelů (přihlašovací jméno : heslo)
+Skript slouží k analýze textu. Zkontroluje, zda je uživatel zaregistrován a pokud ano, dokáže z vybraného
+textu spočítat počet slov, vrací počet slov s velkým titulním písmenem, počet slov psaných velkým a malým 
+písmem, počet číslic a součet číslic. Z výsledků analýzy vytiskne jednoduchý řádkový graf. 
+Skript pracuje s dvěma proměnnými - jedním je seznam textů k analýze, druhým je slovník uživatelů 
+(přihlašovací jméno : heslo)
 
 Cíle testování: Ověření správné funkčnosti programu a jeho funkcí 
                 Ověření kontroly neplatných vstupů
@@ -17,7 +20,10 @@ Funkce jsou - text_analyzer TC01 - TC07
         - process_text TC11
         - print_the results TC11
 
-Příprava prostředí - pracujeme s uživatelem : heslem - bob : 123 a textem 1 - Situated about 10 miles west of Kemmerer, Fossil Butte is a ruggedly impressive topographic feature that rises sharply some 1000 feet above Twin Creek Valley to an elevation of more than 7500 feet above sea level. The butte is located just north of US 30 and the Union Pacific Railroad, which traverse the valley.
+Příprava prostředí - pracujeme s uživatelem : heslem - bob : 123 a textem 1 - Situated about 10 miles 
+west of Kemmerer, Fossil Butte is a ruggedly impressive topographic feature that rises sharply some 1000 
+feet above Twin Creek Valley to an elevation of more than 7500 feet above sea level. The butte is located 
+just north of US 30 and the Union Pacific Railroad, which traverse the valley.
 __________________________________________________________________________
 
 TC01: Ověření funkčnosti programu - pozitivní test
@@ -96,7 +102,7 @@ Kroky testu: 1. Ověřte, že program zobrazuje uvítání s možností výběru
 	2. Napište   (mezeru) a potvrďte stisknutím klávesy Enter
 	3. Ověřte, že program nenačetl text
 Očekávaný výsledek: Program vás upozorní, že jste nezadali číslo
-Skutečný výsledek: Program vypsal: Try again! This is not a number. Program se po třetím špatném zadání ukončil a 	vypsal: You are failed. Terminating program.
+Skutečný výsledek: Program vypsal: Try again! This is not a number. Program se po třetím špatném zadání ukončil a vypsal: You are failed. Terminating program.
 Stav: Pass
 Poznámky: Tento případ kontroluje základní funkčnost programu
 __________________________________________________________________________________________
@@ -112,7 +118,7 @@ Kroky testu: 1. Ověřte, že program zobrazuje uvítání s možností výběru
 	2. Napište 100 a potvrďte stisknutím klávesy Enter
 	3. Ověřte, že program nenačetl text
 Očekávaný výsledek: Program vás upozorní, že jste nezadali číslo
-Skutečný výsledek: Program vypsal: Try again! This is not in correct range. Program se po třetím špatném zadání ukončil 	a vypsal: You are failed. Terminating program.
+Skutečný výsledek: Program vypsal: Try again! This is not in correct range. Program se po třetím špatném zadání ukončil a vypsal: You are failed. Terminating program.
 Stav: Pass
 Poznámky: Tento případ kontroluje základní funkčnost programu
 __________________________________________________________________________________________
@@ -159,7 +165,7 @@ Kroky testu: 1. Ověřte, že program zobrazuje uvítání s možností výběru
 	2. Napište > a potvrďte stisknutím klávesy Enter
 	3. Ověřte, že program nenačetl text
 Očekávaný výsledek: Program vás upozorní, že jste nezadali číslo
-Skutečný výsledek: Program vypsal: Try again! This is not a number. Program se po třetím špatném zadání ukončil a 	vypsal: You are failed. Terminating program.
+Skutečný výsledek: Program vypsal: Try again! This is not a number. Program se po třetím špatném zadání ukončil a vypsal: You are failed. Terminating program.
 Stav: Pass
 Poznámky: Tento případ kontroluje základní funkčnost programu
 __________________________________________________________________________________________
@@ -173,9 +179,32 @@ Kroky testu: 1. Ověřte, že program zobrazuje uvítání s možností výběru
 	3. Ověřte, že se zobrazuje analýza textu
 	4. Ověřte, že údaje z analýzy odpovídají textu
 Očekávaný výsledek: Program analyzuje správný text
-Skutečný výsledek: Program vytiskl počty slov a graf s délkou slov a jejich výskytem v textu, údaje jsou správné, 	grafické zobrazení odpovídá číslu.
+Skutečný výsledek: Program vytiskl počty slov a graf s délkou slov a jejich výskytem v textu, údaje jsou správné, grafické zobrazení odpovídá číslu.
 Stav: Pass
 Poznámky: Tento případ kontroluje základní funkčnost programu
 __________________________________________________________________________________________
 
+Shrnutí výsledků testování
 
+Celkem testovacích případů: 11
+Úspěšných (Pass): 11
+Neúspěšných (Fail): 0
+Celková úspěšnost: ✅ 100 %
+
+Závěr
+
+Testování programu Text Analyzér proběhlo úspěšně.
+Byly otestovány všechny klíčové funkce – autentizace uživatele, výběr textu, zpracování textu, výpočet statistik i tisk výsledků do grafické podoby.
+
+Program korektně reaguje na různé vstupní situace:
+
+správně vyhodnocuje přihlášení uživatele a kontroluje heslo,
+zachytává a hlásí chybné vstupy (nečíselné nebo mimo rozsah),
+správně počítá slova, čísla a další statistické údaje o textu,
+zobrazuje výsledky v očekávaném formátu.
+Všechny testy byly úspěšné a splnily očekávání.
+
+Doporučení pro další rozvoj:
+
+Přidat automatizované testy (např. pomocí pytest) pro snadné opakování testů.
+Rozšířit program o možnost analýzy více textů naráz nebo načítání textu ze souboru.
